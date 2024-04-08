@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.centered {
+  text-align: center;
+}
+
+h1 {
+  background-color: green;
+  padding: 100px;
+  color: #ffffff;
+}
+
+.poster {
+  width: 80vw;
+  margin: 0 auto;
+  height: 15vw;
+  background-color: red;
+  background-image: url(./breaking-bad-poster.jpg);
+  background-size: cover;
+  background-position: 0% 25%;
+}
+
+section {
+  padding: 2rem 2.5rem 0;
+}
+
+hr {
+  margin-top: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+p {
+  text-align: justify;
+}
