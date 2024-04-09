@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Advanced Selectors</title>
+    <style>
+      .first,
+      .second,
+      .third {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        border: 5px solid blue;
+      }
+
+      .first.top {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        border: 5px solid blue;
+      }
+
+      .second > .child {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        border: 5px solid blue;
+      }
+      /*
+      .second > :first-child {
+        height: 50px;
+        width: 50px;
+        background-color: antiquewhite;
+        margin: 10px;
+      } */
+
+      .child + div {
+        height: 50px;
+        width: 50px;
+        background-color: antiquewhite;
+        margin: 10px;
+      }
+
+      [data-some-data~="something"] {
+        background-color: aqua;
+      }
+
+      p::after {
+        content: "I'm not in the html";
+        background-color: red;
+      }
+
+      p:hover {
+        background-color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a
+      data-some-data="something"
+      href=""
+      >Link</a
+    >
+
+    <p data-some-data="hello something">Hello</p>
+
+    <div class="top"></div>
+
+    <div class="first top"></div>
+
+    <div class="second">
+      <div></div>
+
+      <div class="child">
+        <div class="child"></div>
+      </div>
+
+      <div></div>
+    </div>
+    <div class="third"></div>
+  </body>
+</html>

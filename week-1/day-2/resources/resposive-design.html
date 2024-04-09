@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Responsive Design</title>
+  </head>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    }
+
+    header {
+      background-color: red;
+      transition: background-color 1s ease-in-out;
+      width: 100%;
+      vertical-align: middle;
+    }
+
+    ul {
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    /*li:not(:last-child) {
+      margin-bottom: 0.5rem;
+    } */
+
+    li {
+      line-height: 2rem;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+
+    div {
+      --margin-size: 2rem;
+      width: calc(100% - var(--margin-size) * 2);
+      background-color: plum;
+      margin: 1rem var(--margin-size);
+      text-align: center;
+      font-size: 2rem;
+      padding: 4rem 0;
+    }
+
+    p {
+      display: none;
+    }
+
+    @media (width > 600px) {
+      header {
+        background-color: blue;
+      }
+
+      li {
+        display: inline-block;
+        margin: 0 2rem;
+      }
+
+      div {
+        display: inline-block;
+        width: calc(50% - 4rem - 4px);
+      }
+    }
+
+    @media (1300px > width > 900px) {
+      body > * {
+        display: none;
+      }
+      p {
+        display: block;
+      }
+    }
+  </style>
+  <body>
+    <header>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Profile</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Privacy Policy</a></li>
+      </ul>
+    </header>
+
+    <main>
+      <div>Thing 1</div>
+      <div>Thing 2</div>
+    </main>
+
+    <p>No Page For You</p>
+  </body>
+</html>

@@ -10,7 +10,9 @@
   3. [CSS Basics](./day-1/03-css-basics.md)
   4. [Git Basics](./day-1/04-git-basics.md)
 - Day 2:
-  1. []()
+  1. [Box Model](./day-2/01-box-model.md)
+  2. [Advanced Selectors](./day-2/02-advanced-selectors.md)
+  3. [Resposive Design and Flexbox](./day-2/03-resposive-design-and-flexbox.md)
 - Day 3:
   1. []()
 - Day 4:
