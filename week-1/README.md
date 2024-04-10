@@ -14,7 +14,10 @@
   2. [Advanced Selectors](./day-2/02-advanced-selectors.md)
   3. [Resposive Design and Flexbox](./day-2/03-resposive-design-and-flexbox.md)
 - Day 3:
-  1. []()
+  1. [Javascript History](./day-3/01-javascript-history.md)
+  2. [Javascript Intro](./day-3/02-javascript-intro.md)
+  3. [Javascript Numbers](./day-3/03-javascript-numbers.md)
+  4. [Javascript Logical Operators](./day-3/04-javascript-logical-operators.md)
 - Day 4:
   1. []()
 - Day 5:
