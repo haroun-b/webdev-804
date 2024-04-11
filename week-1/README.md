@@ -19,6 +19,8 @@
   3. [Javascript Numbers](./day-3/03-javascript-numbers.md)
   4. [Javascript Logical Operators](./day-3/04-javascript-logical-operators.md)
 - Day 4:
-  1. []()
+  1. [Conditionals and Loops](./day-4/01-conditionals-and-loops.md)
+  2. [Functions](./day-4/02-functions.md)
+  3. [Arrays](./day-4/03-arrays.md)
 - Day 5:
   1. []()
