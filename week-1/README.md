@@ -23,4 +23,4 @@
   2. [Functions](./day-4/02-functions.md)
   3. [Arrays](./day-4/03-arrays.md)
 - Day 5:
-  1. []()
+  1. [JavaScript Objects](./day-5/01.javascript-objects.md)
