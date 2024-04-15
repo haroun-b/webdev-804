@@ -18,6 +18,7 @@ Dans ce repo, vous trouverez :
 ## Sommaire
 
 - [Week 1: HTML, CSS, GIT, Flexbox, JavaScript, Testing](./week-1/README.md)
+- [Week 2: OOP, Array Methods, DOM](./week-2/README.md)
 
 ## Structure du contenu
 
