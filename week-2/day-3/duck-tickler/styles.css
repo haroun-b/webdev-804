@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "Press Start 2P";
+  font-style: normal;
+  font-weight: 400;
+  src: url(./assets/press-start-font/PressStart2P-Regular.ttf)
+    format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+  /* outline: 1px solid red; */
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Press Start 2P", system-ui;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  display: flex;
+}
+
+#game,
+#control-panel {
+  display: inline-block;
+  height: 100%;
+}
+
+#game {
+  container-name: game;
+  background-color: #38b8f8;
+  background-image: url(./assets/duck-tickler-bg.png);
+  background-size: contain;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  width: 75%;
+  position: relative;
+}
+
+#control-panel {
+  background-color: #000;
+  color: #fff;
+  width: 25%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5vw;
+  line-height: 130%;
+  margin-top: 13vh;
+}
+
+#control-panel :not(h1) {
+  font-size: 1.8vw;
+  margin-top: 5vh;
+}
+
+#control-panel span {
+  display: block;
+  margin-top: 1.6vh;
+}
+
+button#start {
+  padding: 2vw;
+  background-color: bisque;
+  color: #000;
+  cursor: pointer;
+}
+
+button#start:disabled {
+  background-color: hsl(31, 19%, 54%);
+  cursor: not-allowed;
+}
+
+.duck {
+  width: 10vw;
+  height: 5.4vw;
+  background: url(./assets/duck-tickler-duck.png) bottom/contain no-repeat;
+  position: absolute;
+}
+
+.tickle-zone {
+  background-color: #ff000088;
+  border-radius: 50%;
+  width: 1.6vw;
+  height: 1.6vw;
+  position: absolute;
+  top: 20%;
+  left: 28%;
+}
+
+@media (min-aspect-ratio: 7/3) {
+  #game {
+    background-image: none;
+  }
+}
