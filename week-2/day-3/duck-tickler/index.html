@@ -15,18 +15,33 @@
       rel="stylesheet"
       href="./styles.css"
     />
+    <script
+      defer
+      src="./script.js"
+    ></script>
   </head>
   <body>
     <div id="game">
-      <div class="duck"><div class="tickle-zone"></div></div>
+      <!-- <div class="duck"><div class="tickle-zone"></div></div> -->
     </div>
 
     <div id="control-panel">
       <h1>Duck Tickler</h1>
+
+      <div class="encouragment"></div>
+
       <div id="high-score">High Score <span>000000</span></div>
       <div id="score">Score <span>000000</span></div>
 
       <button id="start">Start</button>
+      <input
+        type="range"
+        name="volume"
+      />
     </div>
+    <audio
+      style="visibility: hidden"
+      src="./assets/quack.mp3"
+    ></audio>
   </body>
 </html>

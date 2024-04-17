@@ -9,9 +9,11 @@
     U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* 
 * {
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
 }
+*/
 
 button {
   all: unset;
@@ -80,8 +82,10 @@ button#start:disabled {
 }
 
 .duck {
-  width: 10vw;
-  height: 5.4vw;
+  --duck-width: 10vw;
+  --duck-height: 5.4vw;
+  width: var(--duck-width);
+  height: var(--duck-height);
   background: url(./assets/duck-tickler-duck.png) bottom/contain no-repeat;
   position: absolute;
 }
