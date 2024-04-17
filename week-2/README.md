@@ -11,7 +11,7 @@
   1. [High Order Functions](./day-2/01-high-order-functions.md)
   2. [Array Methods](./day-2/02-array-methods.md)
 - Day 3:
-  1. []()
+  1. [DOM Selection and Manipulation](./day-3/01-dom.md)
 - Day 4:
   1. []()
 - Day 5:

@@ -8,6 +8,11 @@
     />
     <title>Document</title>
     <style>
+      .box-container {
+        display: flex;
+        margin: 2rem auto;
+        gap: 0.5rem;
+      }
       .box {
         width: 100px;
         height: 100px;
@@ -22,13 +27,7 @@
     ></script>
   </head>
   <body>
-    <h1
-      data-something="hello"
-      id="my-id"
-      style="color: red; background-color: blue"
-    >
-      Heading
-    </h1>
+    <h1>Heading</h1>
     <form
       action="/"
       method="post"
@@ -46,18 +45,20 @@
         value="Submit"
       />
     </form>
-
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
     <div class="message"></div>
+
+    <div class="box-container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
   </body>
 </html>
