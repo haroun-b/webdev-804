@@ -1,0 +1,62 @@
+#scores {
+  padding: 2vmin 4vmin;
+  position: absolute;
+  z-index: 1;
+}
+
+#score,
+#high-score {
+  font-size: 3vmin;
+}
+
+#popup {
+  background-color: #424751;
+  position: fixed;
+  text-align: center;
+  padding: 3rem;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  /* display: none; */
+}
+
+#popup,
+#game-grid {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
+
+#start-button {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#game-grid {
+  display: grid;
+  background-color: #000;
+  width: 100vmin;
+  height: 100vmin;
+}
+
+.cell {
+  outline: 1px solid white;
+}
+
+.snake {
+  background-color: #ff9500;
+}
+
+.food {
+  animation: food 1s infinite alternate linear;
+}
+
+@keyframes food {
+  0% {
+    background-color: #ffbf0079;
+  }
+  100% {
+    background-color: #ffbf00;
+  }
+}
