@@ -48,6 +48,10 @@
   background-color: #ff9500;
 }
 
+.snake.head {
+  background-color: #ff5e00;
+}
+
 .food {
   animation: food 1s infinite alternate linear;
 }
