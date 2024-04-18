@@ -13,6 +13,8 @@
 - Day 3:
   1. [DOM Selection and Manipulation](./day-3/01-dom.md)
 - Day 4:
-  1. []()
+  1. [Scope, Hoisting, and Shadowing](./day-4/01-scope-hoisting-and-shadowing.md)
+  2. [Value vs Reference](./day-4/02-value-vs-reference.md)
+  3. [Async, Timeout, and Interval](./day-4/03-async-timeout-and-interval.md)
 - Day 5:
   1. []()
