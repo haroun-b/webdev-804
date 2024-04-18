@@ -41,7 +41,7 @@ const game = {
       (cell) => !cell.classList.contains("snake")
     );
 
-    if (cellsWithoutSnake) {
+    if (cellsWithoutSnake.length === 0) {
       this.end("win");
       return;
     }
