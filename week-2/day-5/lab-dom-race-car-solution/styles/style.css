@@ -1,0 +1,97 @@
+body {
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+#game-intro {
+  padding: 20px 0px;
+}
+
+#game-container {
+  display: flex;
+  width: 100vw;
+  padding: 20px 0px;
+  justify-content: center;
+}
+
+#game-screen {
+  display: none;
+  align-content: center;
+  padding: 20px 0px;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/road.png);
+  background-size: cover;
+  animation: slide 5s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 -1000px;
+  }
+  95% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 50px;
+  }
+}
+
+#game-end {
+  display: none;
+}
+
+.game-intro p {
+  font-size: 18px;
+  font-family: "Verdana";
+}
+
+.logo-img {
+  width: 350px;
+}
+
+.arrows-img {
+  width: 150px;
+}
+
+body button {
+  font-size: 30px;
+  background-color: #870007;
+  color: #fff;
+  padding: 20px 40px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.player {
+  background-image: url(../images/car.png);
+}
+
+.obstacle {
+  background-image: url(../images/redCar.png);
+  transform: rotate(180deg);
+}
+
+.player,
+.obstacle {
+  outline: 1px solid yellow;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+}
+
+.player.invincible {
+  animation: flicker 0.3s linear infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
