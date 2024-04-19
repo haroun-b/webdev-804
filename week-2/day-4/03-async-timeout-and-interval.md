@@ -123,3 +123,9 @@ setTimeout(() => {
   clearInterval(intervalId);
 }, 5000);
 ```
+
+## Exercise
+
+- Extend the [duck tickler game](../day-3/duck-tickler/) we did on day 3 to include a timer that ends the game after a certain amount of time.
+- Add a game over message when the timer ends.
+- Allow the user to restart the game, and reset the game state when the game is restarted.
