@@ -6,6 +6,7 @@
 
 - Day 1:
   1. [Destructuring](./day-01/01-destructuring.md)
+  2. [Node and NPM Introduction](./day-01/02-node-and-npm.md)
 - Day 2:
   1. []()
 - Day 3:

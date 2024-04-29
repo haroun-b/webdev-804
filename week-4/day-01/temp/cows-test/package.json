@@ -1,9 +1,0 @@
-{
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "colors": "^1.4.0",
-    "cows": "^2.1.1"
-  }
-}
