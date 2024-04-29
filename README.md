@@ -19,6 +19,9 @@ Dans ce repo, vous trouverez :
 
 - [Week 1: HTML, CSS, GIT, Flexbox, JavaScript, Testing](./week-1/README.md)
 - [Week 2: OOP, Array Methods, DOM](./week-2/README.md)
+- [Week 4: Node & NPM, React, React Routing](./week-4/README.md)
+
+- [Next Steps (After Ironhack)](./next-steps.md)
 
 ## Structure du contenu
 
