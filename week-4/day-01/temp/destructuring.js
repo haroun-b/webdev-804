@@ -80,3 +80,13 @@ const [marie, ...restOfStudents] = arrOfNames;
 // const {!favoriteFootballTeam} = bigObj
 
 function hello(name, ...rest) {}
+
+function greetPerson({ name }) {
+  console.log(`Hi ${name}`);
+}
+
+const numbers = [1, 2, 3];
+
+const [z, x, y, l] = numbers;
+
+console.log(l);
