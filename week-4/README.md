@@ -8,7 +8,7 @@
   1. [Destructuring](./day-01/01-destructuring.md)
   2. [Node and NPM Introduction](./day-01/02-node-and-npm.md)
 - Day 2:
-  1. []()
+  1. [React Introduction](./day-02/01-react-introduction.md)
 - Day 3:
   1. []()
 - Day 4:
