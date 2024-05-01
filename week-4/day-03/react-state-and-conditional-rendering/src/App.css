@@ -1,0 +1,22 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.rich {
+  max-width: 10rem;
+}
+
+.mr-krabs {
+  max-height: 30vh;
+  position: fixed;
+  left: 60vw;
+  top: 100vh;
+  transition: top 2s ease-in;
+}
+
+.mr-krabs.peeking {
+  top: 80vh;
+}

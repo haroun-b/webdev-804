@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./App.css";
 
 import bobImg from "./assets/belcher/bob-belcher.webp";
@@ -7,7 +9,6 @@ import geneImg from "./assets/belcher/gene-belcher.webp";
 import louiseImg from "./assets/belcher/louise-belcher.webp";
 
 import CharacterCard from "./components/CharacterCard";
-import { useState } from "react";
 
 const belchers = [
   {
@@ -46,35 +47,39 @@ const belchers = [
   }
 ];
 
-// shallow copy and perf
-
 function App() {
-  // const [message, setMessage] = useState("Hello");
+  console.log("Rendering App...");
+
   const [characters, setCharacters] = useState(belchers);
 
   function deleteCharacter(name) {
     const charactersToKeep = characters.filter((char) => char.name !== name);
     setCharacters(charactersToKeep);
 
-    // const indexOfCharToDelete = characters.findIndex(
-    //   (char) => char.name === name
-    // );
+    /* => mutating state in a react app is an anti-pattern (AVOID)
+    const indexOfCharToDelete = characters.findIndex(
+      (char) => char.name === name
+    );
 
-    // characters.splice(indexOfCharToDelete, 1);
+    characters.splice(indexOfCharToDelete, 1);
 
-    // setCharacters(characters);
-    // setCharacters([...characters]);
+    setCharacters(characters);  // page won't re-render because array ref is hasn't changed
+    setCharacters([...characters]); // spreading works because it creates a shallow copy that has a new ref
+    */
   }
-
-  console.log("Rendering");
 
   return (
     <>
       <h1>Belcher Family</h1>
-      {/* <div>{message}</div> */}
 
-      {/* <button onClick={() => setMessage("Hello")}>click</button> */}
-
+      {/* when creating a list of components, a unique key must be set on each component */}
+      {/* DO NOT USE THE ELEMENT INDEX IN THE ARRAY AS KEY */}
+      {/* 
+      remove the key (or use index as key) from the CharacterCard and start the dev server.
+      click the like button a few times on some character to increment its like counter then delete the character.
+      notice how the next character's counter changes.
+      this is because React needs the keys to correctly link the state to it's corresponding character
+      */}
       {characters.map((char) => (
         <CharacterCard
           key={char.name}

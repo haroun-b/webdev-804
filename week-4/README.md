@@ -10,7 +10,9 @@
 - Day 2:
   1. [React Introduction](./day-02/01-react-introduction.md)
 - Day 3:
-  1. []()
+  1. [React State](./day-03/01-react-state.md)
+  2. [React State and Conditional Rendering Example](./day-03/react-state-and-conditional-rendering/src/App.jsx)
+  3. [React Lists and Keys Example](./day-03//react-belcher-fam-2/src/App.jsx)
 - Day 4:
   1. []()
 - Day 5:
