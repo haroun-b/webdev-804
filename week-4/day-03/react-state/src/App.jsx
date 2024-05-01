@@ -49,6 +49,8 @@ function App() {
         />
       )}
 
+      {/* only expressions can be used here. ie: if-else wouldn't work */}
+
       <img
         // className={amIRich ? "mr-krabs peeking" : "mr-krabs"}
         // className={`mr-krabs${amIRich ? " peeking" : ""}`}
