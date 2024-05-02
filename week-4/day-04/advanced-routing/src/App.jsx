@@ -2,9 +2,8 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import HomePage from "./pages/HomePage";
-
-import CharacterDetailsPage from "./pages/CharacterDetailsPage";
 import CharacterPage from "./pages/CharactersPage";
+import CharacterDetailsPage from "./pages/CharacterDetailsPage";
 
 function App() {
   return (
@@ -25,19 +24,27 @@ function App() {
           Component={CharacterPage}
         />
 
-        {/* <Route
+        {/* => creating a route for every character would be insane.
+        <Route
           path="/characters/1"
-          element={<CharacterDetailsPage id={1} />}
+          element={<CharacterDetailsPage id="1" />}
         />
 
         <Route
           path="/characters/2"
-          element={<CharacterDetailsPage id={2} />}
-        /> */}
+          element={<CharacterDetailsPage id="2" />}
+        />
+        */}
+
+        {/* so we use a dynamic path `/:nameItWhatever` */}
+        <Route
+          path="/characters/:charId"
+          Component={CharacterDetailsPage}
+        />
 
         <Route
-          path="/characters/:id"
-          Component={CharacterDetailsPage}
+          path="*"
+          element={<h1>404 Page Not Found!</h1>}
         />
       </Routes>
     </>

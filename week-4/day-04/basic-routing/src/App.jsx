@@ -1,25 +1,33 @@
+import { useState } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import AdminPage from "./pages/AdminPage";
-import { useState } from "react";
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   return (
     <>
-      {/* <a href="/about">About</a> */}
-      {/* <a href="/">Home</a> */}
+      {/* => using regular link works, but causes page to reload 
+      <a href="/about">About</a>
+      <a href="/">Home</a>
+      */}
 
-      {/* <nav>
+      {/* => we use Link or NavLink, which do not reload page
+      <nav>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
-      </nav> */}
+      </nav> 
+      */}
 
+      {/*
+      `NavLink` can take a callback as `className`
+      allowing to change the css `class` and styling based on whether or not the link is active
+      */}
       <nav>
         <NavLink
           to="/"
@@ -27,18 +35,21 @@ function App() {
         >
           Home
         </NavLink>
+
         <NavLink
           to="/about"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           About
         </NavLink>
+
         <NavLink
           to="/contact"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           Contact
         </NavLink>
+
         {isAdmin && (
           <NavLink
             to="/admin"
@@ -49,7 +60,7 @@ function App() {
         )}
 
         {!isAdmin && (
-          <button onClick={() => setIsAdmin(true)}>Trust me bro</button>
+          <button onClick={() => setIsAdmin(true)}>Trust Me Bro</button>
         )}
       </nav>
 
@@ -79,6 +90,10 @@ function App() {
           element={<AdminPage isAdmin={isAdmin} />}
         />
 
+        {/*
+        `*` is what we call a "catch-all" path
+        it willmatch any characters following the /, including other / characters.
+        */}
         <Route
           path="*"
           element={<h1>404 Page Not Found!</h1>}

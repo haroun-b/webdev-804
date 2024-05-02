@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Bob Belcher",
     "gender": "male",
     "voiceActor": "H. Jon Benjamin",
@@ -8,7 +8,7 @@
     "imageSrc": "/belchers/bob-belcher.webp"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Linda Belcher",
     "gender": "female",
     "voiceActor": "John Roberts",
@@ -16,7 +16,7 @@
     "imageSrc": "/belchers/linda-belcher.webp"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Tina Belcher",
     "gender": "female",
     "voiceActor": "Dan Mintz",
@@ -24,7 +24,7 @@
     "imageSrc": "/belchers/tina-belcher.webp"
   },
   {
-    "id": 4,
+    "id": "4",
     "name": "Gene Belcher",
     "gender": "male",
     "voiceActor": "Eugene Mirman",
@@ -32,7 +32,7 @@
     "imageSrc": "/belchers/gene-belcher.webp"
   },
   {
-    "id": 5,
+    "id": "5",
     "name": "Louise Belcher",
     "gender": "female",
     "voiceActor": "Kristen Schaal",

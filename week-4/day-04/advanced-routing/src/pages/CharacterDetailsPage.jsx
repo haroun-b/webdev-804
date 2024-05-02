@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import characters from "../assets/characters.json";
 
 function CharacterDetailsPage() {
-  const { id } = useParams();
+  // `useParams` allows to get the dynamic part of the path
+  const { charId } = useParams();
 
-  const character = characters.find((char) => char.id === parseInt(id));
+  const character = characters.find((char) => char.id === charId);
 
   if (!character) {
     return <div>404 Character Not Found</div>;

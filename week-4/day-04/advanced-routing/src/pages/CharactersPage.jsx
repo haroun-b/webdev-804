@@ -15,7 +15,11 @@ function CharacterPage() {
   return (
     <>
       <h1>Belcher Family</h1>
-      {/* <Link to="/characters?gender=male">Male</Link> */}
+      {/* => while using a Link works in this case
+      => setting multiple searchParams would be difficult
+
+      <Link to="/characters?gender=male">Male</Link>
+      */}
 
       <div className="filters">
         <button onClick={() => setSearchParams()}>All</button>
