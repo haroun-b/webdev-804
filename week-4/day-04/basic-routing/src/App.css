@@ -41,6 +41,23 @@
   color: #888;
 }
 
-a {
-  margin-left: 2rem;
+nav {
+  background-color: #2d18e9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+a.active {
+  background-color: antiquewhite;
+  color: #000;
 }
