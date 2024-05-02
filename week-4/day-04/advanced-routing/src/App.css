@@ -1,0 +1,52 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+nav {
+  background-color: #2d18e9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+a.active {
+  background-color: antiquewhite;
+  color: #000;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  padding: 2rem;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  color: #fff;
+}
+
+.card > img {
+  max-height: 10rem;
+}
+
+.card.light > h2 {
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+}
