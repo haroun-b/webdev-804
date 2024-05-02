@@ -1,0 +1,149 @@
+[
+  {
+    "id": 1,
+    "destination": "Paris, France",
+    "image": "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-iron-travels/paris.jpg",
+    "days": 7,
+    "allInclusive": true,
+    "totalCost": 2200,
+    "description": "Explore the romantic streets of Paris.",
+    "parts": [
+      {
+        "name": "All-Inclusive Package",
+        "description": "Includes flights, hotel, meals, entertainment, tours and tickets to tourist attractions.",
+        "cost": 2200
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "destination": "Tokyo, Japan",
+    "image": "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-iron-travels/tokyo.jpeg",
+    "days": 7,
+    "allInclusive": false,
+    "totalCost": 1866,
+    "description": "Discover the vibrant culture of Tokyo.",
+    "parts": [
+      {
+        "name": "Flight to Tokyo (round-trip)",
+        "description": "",
+        "cost": 892
+      },
+      {
+        "name": "7 days - Hotel in Tokyo",
+        "description": "Comfort Hotel Tokyo Kanda - 4 stars",
+        "cost": 674
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "destination": "Rome, Italy",
+    "image": "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-iron-travels/rome.jpeg",
+    "days": 3,
+    "allInclusive": false,
+    "totalCost": 346,
+    "description": "Experience the rich history of Rome.",
+    "parts": [
+      {
+        "name": "Flight to Rome (round-trip)",
+        "description": "Round-trip flight to Rome from your destination.",
+        "cost": 180
+      },
+      {
+        "name": "3-Day Hotel in Rome",
+        "description": "3-Day Hotel in Rome (3 stars)",
+        "cost": 150
+      },
+      {
+        "name": "Colosseum Visit - Ticket",
+        "description": "",
+        "cost": 16
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "destination": "Barcelona, Spain",
+    "image": "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-iron-travels/barcelona.jpeg",
+    "days": 3,
+    "allInclusive": false,
+    "totalCost": 349,
+    "description": "Enjoy the vibrant culture of Barcelona.",
+    "parts": [
+      {
+        "name": "Flight to Barcelona (round-trip)",
+        "description": "",
+        "cost": 180
+      },
+      {
+        "name": "3-Day Hotel in Barcelona",
+        "description": "Budget-friendly hotel stay for 3 days in Barcelona center.",
+        "cost": 169
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "destination": "Bangkok, Thailand",
+    "image": "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-iron-travels/bangkok.jpeg",
+    "days": 7,
+    "allInclusive": false,
+    "totalCost": 992,
+    "description": "Experience Bangkok and Thailand.",
+    "parts": [
+      {
+        "name": "Flight to Bangkok (round-trip)",
+        "description": "",
+        "cost": 680
+      },
+      {
+        "name": "7-Day Hotel in Bangkok (4 stars)",
+        "description": "",
+        "cost": 312
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "destination": "Athens, Greece",
+    "image": "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-iron-travels/athens.jpg",
+    "days": 3,
+    "allInclusive": false,
+    "totalCost": 341,
+    "description": "Discover the ancient history of Athens.",
+    "parts": [
+      {
+        "name": "Flight to Athens (round-trip)",
+        "description": "",
+        "cost": 201
+      },
+      {
+        "name": "3-Day Hotel in Athens",
+        "description": "Budget-friendly hotel stay for 3 days",
+        "cost": 140
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "destination": "Prague, Czech Republic",
+    "image": "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-iron-travels/prague.jpg",
+    "days": 3,
+    "allInclusive": false,
+    "totalCost": 360,
+    "description": "Explore the charming streets of Prague.",
+    "parts": [
+      {
+        "name": "Flight to Prague",
+        "description": "One-way flight to Prague, Chech Republic",
+        "cost": 150
+      },
+      {
+        "name": "5-Day Hotel in Prague",
+        "description": "Affordable hotel stay for 2 days",
+        "cost": 210
+      }
+    ]
+  }
+]
