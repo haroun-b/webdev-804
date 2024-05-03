@@ -24,7 +24,8 @@ function CharacterPage({ characters, setCharacters }) {
 
   instead of having to deal with a state for every input, it's better to group all input state in one object
   */
-  const [characterForm, setCharacterForm] = useState({
+
+  const emptyForm = {
     firstName: "",
     lastName: "",
     gender: "male",
@@ -32,7 +33,8 @@ function CharacterPage({ characters, setCharacters }) {
     voiceActor: "",
     quote: "",
     imageSrc: ""
-  });
+  };
+  const [characterForm, setCharacterForm] = useState(emptyForm);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -54,10 +56,24 @@ function CharacterPage({ characters, setCharacters }) {
     ])
     */
 
-    setCharacters([
-      ...characters,
-      { ...characterForm, id: (characters.length + 1).toString() }
-    ]);
+    if (characterForm.id) {
+      const characterToEditIndex = characters.findIndex(
+        (char) => char.id === characterForm.id
+      );
+
+      setCharacters([
+        ...characters.slice(0, characterToEditIndex),
+        ...characters.slice(characterToEditIndex + 1),
+        characterForm
+      ]);
+    } else {
+      setCharacters([
+        ...characters,
+        { ...characterForm, id: (characters.length + 1).toString() }
+      ]);
+    }
+
+    setCharacterForm(emptyForm);
   }
 
   function handleChange(event) {
@@ -69,6 +85,12 @@ function CharacterPage({ characters, setCharacters }) {
       [inputEl.name]:
         inputEl.type === "checkbox" ? inputEl.checked : inputEl.value
     });
+  }
+
+  function handleEdit(id) {
+    const characterToEdit = characters.find((char) => char.id === id);
+
+    setCharacterForm(characterToEdit);
   }
 
   return (
@@ -151,7 +173,7 @@ function CharacterPage({ characters, setCharacters }) {
         <label htmlFor="imageSrc">
           Image
           <input
-            type="url"
+            type="text"
             name="imageSrc"
             id="imageSrc"
             onChange={handleChange}
@@ -172,7 +194,7 @@ function CharacterPage({ characters, setCharacters }) {
 
         <input
           type="submit"
-          value="Add Character"
+          value={`${characterForm.id ? "Edit" : "Add"} Character`}
         />
       </form>
 
@@ -193,6 +215,7 @@ function CharacterPage({ characters, setCharacters }) {
           firstName={char.firstName}
           lastName={char.lastName}
           imageSrc={char.imageSrc}
+          handleEdit={handleEdit}
         />
       ))}
     </>
