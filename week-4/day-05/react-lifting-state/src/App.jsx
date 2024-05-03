@@ -51,8 +51,10 @@ function App() {
   console.log("Rendering App...");
 
   const [characters, setCharacters] = useState(belchers);
-  const [charCounters, setCharCounters] = useState({
-    // "Bob Belcher": 0
+  const [charLikeCounters, setCharLikeCounters] = useState({
+    // "Bob Belcher": 0,
+    // "Linda Belcher": 0
+    // etc...
   });
 
   function deleteCharacter(name) {
@@ -62,9 +64,10 @@ function App() {
 
   let favCharacter = { name: "-", likes: 0 };
 
-  for (const key in charCounters) {
-    if (charCounters[key] > favCharacter.likes) {
-      favCharacter = { name: key, likes: charCounters[key] };
+  // character names are used as keys in the charLikeCounters object
+  for (const key in charLikeCounters) {
+    if (charLikeCounters[key] > favCharacter.likes) {
+      favCharacter = { name: key, likes: charLikeCounters[key] };
     }
   }
 
@@ -82,8 +85,8 @@ function App() {
           quote={char.quote}
           imageSrc={char.imageSrc}
           deleteCharacter={deleteCharacter}
-          charCounters={charCounters}
-          setCharCounters={setCharCounters}
+          charLikeCounters={charLikeCounters}
+          setCharCounters={setCharLikeCounters}
         />
       ))}
     </>

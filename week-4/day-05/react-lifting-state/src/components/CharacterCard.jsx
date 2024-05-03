@@ -6,11 +6,12 @@ function CharacterCard({
   quote,
   imageSrc,
   deleteCharacter,
-  charCounters,
+  charLikeCounters,
   setCharCounters
 }) {
   console.log("Rendering ", name);
 
+  // we moved the like counter to the parent component to be able to compare the likes between character. ie `we lifted the state up`
   // const [likeCounter, setLikeCounter] = useState(0);
 
   return (
@@ -21,22 +22,33 @@ function CharacterCard({
       />
       <hgroup>
         <h2>
-          {name} <span>| liked: {charCounters[name] || 0}</span>
+          {name} <span>| liked: {charLikeCounters[name] || 0}</span>
         </h2>
         <h3>Voiced by: {voiceActor}</h3>
         <p>{quote}</p>
         <button
-          onClick={() => {
-            const currentLikeCount = charCounters[name] || 0;
+          // no longer used because state was lifted up
+          // onClick={() => setLikeCounter(likeCounter + 1)}
 
-            setCharCounters({ ...charCounters, [name]: currentLikeCount + 1 });
+          onClick={() => {
+            const currentLikeCount = charLikeCounters[name] || 0;
+
+            /*
+            we spread charCounters ({...charCounters}) so as not to lose the other characters
+
+            {[name]: newLikeCount} here the character's name will be used as key. for "Bob Belcher" we'll have {...charCounters, "Bob Belcher": newLikeCount}
+            */
+            setCharCounters({
+              ...charLikeCounters,
+              [name]: currentLikeCount + 1
+            });
           }}
         >
           Like
         </button>
         <button
           onClick={() => {
-            setCharCounters({ ...charCounters, [name]: 0 });
+            setCharCounters({ ...charLikeCounters, [name]: 0 });
             deleteCharacter(name);
           }}
         >
