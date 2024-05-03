@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./CharacterCard.css";
 
 function CharacterCard({
@@ -7,12 +6,12 @@ function CharacterCard({
   quote,
   imageSrc,
   deleteCharacter,
-  favCharacter,
-  setFavCharacter
+  charCounters,
+  setCharCounters
 }) {
   console.log("Rendering ", name);
 
-  const [likeCounter, setLikeCounter] = useState(0);
+  // const [likeCounter, setLikeCounter] = useState(0);
 
   return (
     <div className="card">
@@ -22,23 +21,27 @@ function CharacterCard({
       />
       <hgroup>
         <h2>
-          {name} <span>| liked: {likeCounter}</span>
+          {name} <span>| liked: {charCounters[name] || 0}</span>
         </h2>
         <h3>Voiced by: {voiceActor}</h3>
         <p>{quote}</p>
         <button
           onClick={() => {
-            const newLikeCount = likeCounter + 1;
+            const currentLikeCount = charCounters[name] || 0;
 
-            setLikeCounter(likeCounter + 1);
-            if (newLikeCount >= favCharacter.likeCount) {
-              setFavCharacter({ name, likeCount: newLikeCount });
-            }
+            setCharCounters({ ...charCounters, [name]: currentLikeCount + 1 });
           }}
         >
           Like
         </button>
-        <button onClick={() => deleteCharacter(name)}>Delete</button>
+        <button
+          onClick={() => {
+            setCharCounters({ ...charCounters, [name]: 0 });
+            deleteCharacter(name);
+          }}
+        >
+          Delete
+        </button>
       </hgroup>
     </div>
   );

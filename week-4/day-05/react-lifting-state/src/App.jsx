@@ -51,11 +51,21 @@ function App() {
   console.log("Rendering App...");
 
   const [characters, setCharacters] = useState(belchers);
-  const [favCharacter, setFavCharacter] = useState({ name: "", likeCount: 0 });
+  const [charCounters, setCharCounters] = useState({
+    // "Bob Belcher": 0
+  });
 
   function deleteCharacter(name) {
     const charactersToKeep = characters.filter((char) => char.name !== name);
     setCharacters(charactersToKeep);
+  }
+
+  let favCharacter = { name: "-", likes: 0 };
+
+  for (const key in charCounters) {
+    if (charCounters[key] > favCharacter.likes) {
+      favCharacter = { name: key, likes: charCounters[key] };
+    }
   }
 
   return (
@@ -72,8 +82,8 @@ function App() {
           quote={char.quote}
           imageSrc={char.imageSrc}
           deleteCharacter={deleteCharacter}
-          favCharacter={favCharacter}
-          setFavCharacter={setFavCharacter}
+          charCounters={charCounters}
+          setCharCounters={setCharCounters}
         />
       ))}
     </>
