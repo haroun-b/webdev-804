@@ -4,9 +4,26 @@ import CharacterCard from "../components/CharacterCard";
 import { useState } from "react";
 
 function CharacterPage({ characters, setCharacters }) {
-  // const [firstName, setFirstName] = useState("Jon");
-  // const [lastName, setLastName] = useState("Doe");
+  /*
+  we moved this state to the parent component (lifted the state).
+  because we need it in the CharactersDetailsPage
+  
+  const [characters, setCharacters] = useState(jsonCharacters);
+  */
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const charGender = searchParams.get("gender");
+
+  const filteredCharacters = charGender
+    ? characters.filter((char) => char.gender === charGender)
+    : characters;
+
+  /*
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  instead of having to deal with a state for every input, it's better to group all input state in one object
+  */
   const [characterForm, setCharacterForm] = useState({
     firstName: "",
     lastName: "",
@@ -17,19 +34,25 @@ function CharacterPage({ characters, setCharacters }) {
     imageSrc: ""
   });
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const charGender = searchParams.get("gender");
-
-  const filteredCharacters = charGender
-    ? characters.filter((char) => char.gender === charGender)
-    : characters;
-
   function handleSubmit(event) {
     event.preventDefault();
 
-    // const formEl = event.target;
-    // const firstNameEl = formEl.querySelector("#firstName");
-    // const lastNameEl = formEl.querySelector("#lastName");
+    /* => while this works, it's considered an anti-pattern in react (AVOID)
+    const formEl = event.target;
+    const firstNameEl = formEl.querySelector("#firstName");
+    const lastNameEl = formEl.querySelector("#lastName");
+    etc...
+
+    setCharacters([
+      ...characters,
+      {
+        id: (characters.length + 1).toString(),
+        firstName: firstNameEl.value,
+        lastName: lastNameEl.value,
+        etc...
+      }
+    ])
+    */
 
     setCharacters([
       ...characters,
@@ -38,22 +61,24 @@ function CharacterPage({ characters, setCharacters }) {
   }
 
   function handleChange(event) {
+    const inputEl = event.target;
+
     setCharacterForm({
       ...characterForm,
-      [event.target.name]:
-        event.target.type === "checkbox"
-          ? event.target.checked
-          : event.target.value
+
+      [inputEl.name]:
+        inputEl.type === "checkbox" ? inputEl.checked : inputEl.value
     });
   }
 
   return (
     <>
-      <h1>Belcher Family</h1>
+      <h1>Bob&apos;s Burgers Characters</h1>
 
       <form
         method="post"
         onSubmit={handleSubmit}
+        className="pico"
       >
         <label htmlFor="firstName">
           First Name
@@ -77,6 +102,11 @@ function CharacterPage({ characters, setCharacters }) {
             type="text"
             name="lastName"
             id="lastName"
+            /* 
+            onChange={(e) =>
+              setCharacterForm({ ...characterForm, lastName: e.target.value })
+            }
+            */
             onChange={handleChange}
             value={characterForm.lastName}
           />
@@ -93,17 +123,6 @@ function CharacterPage({ characters, setCharacters }) {
             <option value="male">Male</option>
             <option value="female">female</option>
           </select>
-        </label>
-
-        <label htmlFor="isRecurring">
-          Is Recurring Character
-          <input
-            type="checkbox"
-            name="isRecurring"
-            id="isRecurring"
-            onChange={handleChange}
-            value={characterForm.isRecurring}
-          />
         </label>
 
         <label htmlFor="voiceActor">
@@ -138,6 +157,17 @@ function CharacterPage({ characters, setCharacters }) {
             onChange={handleChange}
             value={characterForm.imageSrc}
           />
+        </label>
+
+        <label htmlFor="isRecurring">
+          <input
+            type="checkbox"
+            name="isRecurring"
+            id="isRecurring"
+            onChange={handleChange}
+            value={characterForm.isRecurring}
+          />
+          Is Recurring Character
         </label>
 
         <input

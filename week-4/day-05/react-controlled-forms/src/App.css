@@ -6,7 +6,7 @@
 }
 
 nav {
-  background-color: #2d18e9;
+  background-color: #ffbf00;
   position: fixed;
   top: 0;
   left: 0;
@@ -17,13 +17,12 @@ nav {
 }
 
 nav a {
-  color: #fff;
+  color: #000;
   padding: 1rem 2rem;
 }
 
 a.active {
   background-color: antiquewhite;
-  color: #000;
 }
 
 .filters {
@@ -38,7 +37,7 @@ a.active {
   display: flex;
   text-align: left;
   align-items: center;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 .card > img {
@@ -52,6 +51,18 @@ a.active {
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+  text-align: left;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 2px solid #ffbf00;
+}
+
+form input[type="submit"] {
+  margin-top: 1.5rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .card {
+    color: #213547;
+  }
 }

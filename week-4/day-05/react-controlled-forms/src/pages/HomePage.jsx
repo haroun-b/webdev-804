@@ -1,9 +1,9 @@
 function HomePage() {
   return (
     <div>
-      <h1>Belcher Family</h1>
+      <h1>Bob&apos;s Burgers</h1>
       <p>
-        This is a mini website about the Belcher family from the TV show Bob's
+        This is a mini website about the characters from the TV show Bob&apos;s
         Burgers
       </p>
     </div>
