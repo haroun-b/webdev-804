@@ -21,6 +21,7 @@ function CharacterPage({ characters, setCharacters }) {
   /*
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  etc...
 
   instead of having to deal with a state for every input, it's better to group all input state in one object
   */
@@ -56,24 +57,30 @@ function CharacterPage({ characters, setCharacters }) {
     ])
     */
 
+    /*
+    `characterForm` contains an `id` only when it is pre-filled by `handleEdit`,
+    and when that's the case, we know we're editing a character
+    */
     if (characterForm.id) {
       const characterToEditIndex = characters.findIndex(
         (char) => char.id === characterForm.id
       );
 
+      // we slice around the character, then add at the end
       setCharacters([
         ...characters.slice(0, characterToEditIndex),
         ...characters.slice(characterToEditIndex + 1),
         characterForm
       ]);
     } else {
+      // when characterForm doesn't contain an `id`, we create a new character
       setCharacters([
         ...characters,
         { ...characterForm, id: (characters.length + 1).toString() }
       ]);
     }
 
-    setCharacterForm(emptyForm);
+    setCharacterForm(emptyForm); // we always reset the form after submission
   }
 
   function handleChange(event) {
@@ -90,6 +97,7 @@ function CharacterPage({ characters, setCharacters }) {
   function handleEdit(id) {
     const characterToEdit = characters.find((char) => char.id === id);
 
+    // pre-fills the `characterForm` with the character's infos
     setCharacterForm(characterToEdit);
   }
 

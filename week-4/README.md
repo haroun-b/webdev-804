@@ -16,4 +16,5 @@
 - Day 4:
   1. [React Router DOM](./day-04/01-react-router-dom.md)
 - Day 5:
-  1. []()
+  1. [React State Lifting](./day-05/01-react-state-lifting.md)
+  2. [React Controlled Forms](./day-05/02-react-controlled-forms.md)

@@ -43,12 +43,15 @@ a.active {
 
 .card {
   padding: 2rem;
-  border-top: 2px solid #ffbf00;
 }
 
 .card img {
   max-height: 10rem;
   margin-right: 1rem;
+}
+
+.card.light {
+  border-top: 2px solid #ffbf00;
 }
 
 .card.light h2 {
