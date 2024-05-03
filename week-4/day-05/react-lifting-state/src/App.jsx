@@ -72,7 +72,7 @@ function App() {
     <>
       <h1>Belcher Family</h1>
 
-      <div>Favourite Character: {favCharacter.name}</div>
+      <div className="fav-character">👑 Favourite: {favCharacter.name} 👑</div>
 
       {characters.map((char) => (
         <CharacterCard

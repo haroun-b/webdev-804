@@ -1,5 +1,5 @@
 .card {
-  outline: 1px solid red;
+  border-top: 2px solid #ffbb00;
   padding: 2rem;
   display: flex;
   text-align: left;
@@ -7,4 +7,8 @@
 
 .card > img {
   max-height: 10rem;
+}
+
+.card button:last-child {
+  margin-left: 2rem;
 }
