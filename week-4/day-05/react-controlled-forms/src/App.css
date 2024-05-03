@@ -32,19 +32,26 @@ a.active {
   margin-bottom: 2rem;
 }
 
-.card {
-  padding: 2rem;
+.card,
+.card > a {
   display: flex;
   text-align: left;
+  justify-content: space-between;
   align-items: center;
   color: rgba(255, 255, 255, 0.87);
 }
 
-.card > img {
-  max-height: 10rem;
+.card {
+  padding: 2rem;
+  border-top: 2px solid #ffbf00;
 }
 
-.card.light > h2 {
+.card img {
+  max-height: 10rem;
+  margin-right: 1rem;
+}
+
+.card.light h2 {
   font-size: 2rem;
   text-align: center;
   width: 100%;
@@ -62,7 +69,7 @@ form input[type="submit"] {
 }
 
 @media (prefers-color-scheme: light) {
-  .card {
+  .card > a {
     color: #213547;
   }
 }

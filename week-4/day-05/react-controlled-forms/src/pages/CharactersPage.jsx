@@ -187,7 +187,7 @@ function CharacterPage({ characters, setCharacters }) {
             name="isRecurring"
             id="isRecurring"
             onChange={handleChange}
-            value={characterForm.isRecurring}
+            checked={characterForm.isRecurring}
           />
           Is Recurring Character
         </label>
