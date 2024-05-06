@@ -7,21 +7,9 @@ const steps = [
 
 const listEl = document.querySelector("#whacking-steps");
 
-// function FakePromise(func) {
-//   function resolve() {}
-//   function reject() {}
-
-//   func(resolve, reject);
-// }
-
-function addStep(step) {
-  const li = document.createElement("li");
-  li.textContent = step;
-
-  listEl.appendChild(li);
-}
-
 function fetchStep(index) {
+  const randomDelay = Math.floor(Math.random() * 1000);
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (typeof index !== "number") {
@@ -29,53 +17,81 @@ function fetchStep(index) {
       }
 
       resolve(steps[index]);
-    }, Math.floor(Math.random() * 1000));
+    }, randomDelay);
   });
 }
 
-// fetchStep(0)
-//   .then((data) => {
-//     addStep(data);
+function displayStep(step) {
+  const li = document.createElement("li");
+  li.textContent = step;
 
-//     fetchStep(1).then((data) => {
-//       addStep(data);
+  listEl.appendChild(li);
+}
 
-//       fetchStep(2).then((data) => {
-//         addStep(data);
-//       });
-//     });
-//   })
-//   .catch(console.log);
+/*
+while this works, it does not help us avoid callback hell. this is "promise hell"
+
+fetchStep(0)
+  .then((data) => {
+    displayStep(data);
+
+    fetchStep(1)
+      .then((data) => {
+        displayStep(data);
+
+        fetchStep(2)
+          .then((data) => {
+            displayStep(data);
+          })
+          .catch((err) => console.log("step2 failed: ", err));
+      })
+      .catch((err) => console.log("step1 failed: ", err));
+  })
+  .catch((err) => console.log("step0 failed: ", err));
+*/
+
+// the correct way to chain promises is to return the next promise, so it can be handled by the next `.then`
+fetchStep(0)
+  .then((step0Data) => {
+    displayStep(step0Data);
+    return fetchStep(1);
+  })
+  .catch((err) => console.log("step0 failed: ", err))
+  .then((step1Data) => {
+    displayStep(step1Data);
+    return fetchStep(2);
+  })
+  .catch((err) => console.log("step1 failed: ", err))
+  .then((step2Data) => {
+    displayStep(step2Data);
+    return fetchStep(3);
+  })
+  .catch((err) => console.log("step2 failed: ", err))
+  .then((step3Data) => {
+    displayStep(step3Data);
+    displayStep("Jimmy is dead!");
+  })
+  .catch((err) => console.log("step3 failed: ", err));
+
+/*
+if we want to catch any error that happens in any of the steps, we can use a single `.catch` at the end
 
 fetchStep(0)
   .then((step0Data) => {
-    addStep(step0Data);
-    return fetchStep(1);
-  })
-  .catch((err) => console.log("Step0 failed! ", err))
-  .then((step1Data) => {
-    addStep(step1Data);
-    return fetchStep(2);
-  })
-  .catch((err) => console.log("Step1 failed! ", err))
-  .then((step2Data) => {
-    addStep(step2Data);
-  })
-  .catch((err) => console.log("Step2 failed! ", err));
-
-fetchStep(0)
-  .then((step0Data) => {
-    addStep(step0Data);
+    displayStep(step0Data);
     return fetchStep(1);
   })
   .then((step1Data) => {
-    addStep(step1Data);
+    displayStep(step1Data);
     return fetchStep(2);
   })
   .then((step2Data) => {
-    addStep(step2Data);
+    displayStep(step2Data);
+    return fetchStep(3);
   })
-  .catch((err) => console.log("One of the steps failed! ", err))
-  .finally(() => {
-    console.log("This will run after promise is settled");
-  });
+  .then((step3Data) => {
+    displayStep(step3Data);
+    displayStep("Jimmy is dead!");
+  })
+  .catch((err) => console.log("one of the steps failed: ", err));
+*/
