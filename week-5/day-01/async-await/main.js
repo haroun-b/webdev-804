@@ -5,15 +5,7 @@ const steps = [
   "Whack Jimmy"
 ];
 
-const steps2 = [
-  "Take care of Short Joey's parking ticket",
-  "Ask Joey for a meet with Fat Tony",
-  "Ask for Fat Tony's blessing",
-  "Whack Peter"
-];
-
 const listEl = document.querySelector("#whacking-steps");
-const listEl2 = document.querySelector("#whacking-steps2");
 
 // function FakePromise(func) {
 //   function resolve() {}
@@ -29,13 +21,6 @@ function addStep(step) {
   listEl.appendChild(li);
 }
 
-function addStep2(step) {
-  const li = document.createElement("li");
-  li.textContent = step;
-
-  listEl2.appendChild(li);
-}
-
 function fetchStep(index) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -43,19 +28,11 @@ function fetchStep(index) {
         reject("index must be a number");
       }
 
-      resolve(steps[index]);
-    }, Math.floor(Math.random() * 1000));
-  });
-}
-
-function fetchStep2(index) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (typeof index !== "number") {
-        reject("index must be a number");
+      if (index > 2) {
+        reject("index is greater than 2");
       }
 
-      resolve(steps2[index]);
+      resolve(steps[index]);
     }, Math.floor(Math.random() * 1000));
   });
 }
@@ -82,37 +59,27 @@ async function whackJimmy() {
   //   addStep(step);
   // });
 
+  // for (let i = 0; i < steps.length; i++) {
+  //   const step = await fetchStep(i);
+  //   addStep(step);
+  // }
+
+  const promises = [];
+
   for (let i = 0; i < steps.length; i++) {
-    const step = await fetchStep(i);
-    addStep(step);
+    promises.push(fetchStep(i));
   }
-
-  return "Jimmy Whacked!";
-}
-
-async function whackPeter() {
-  for (let i = 0; i < steps.length; i++) {
-    const step = await fetchStep2(i);
-    addStep2(step);
-  }
-
-  return "Peter Whacked!";
-}
-
-async function whackJimmyAndPeter() {
-  // await whackPeter();
-  // await whackJimmy();
-
-  // whackJimmy();
-  // whackPeter();
 
   try {
-    const result = await Promise.all([whackJimmy(), whackPeter()]);
+    const stepToDisplay = await Promise.all(promises);
 
-    console.log(result);
+    console.log(stepToDisplay);
+    for (const step of stepToDisplay) {
+      addStep(step);
+    }
   } catch (err) {
     console.log(err);
   }
 }
 
-whackJimmyAndPeter();
+whackJimmy();
