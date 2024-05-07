@@ -1,5 +1,3 @@
-[Roadmap.sh](https://roadmap.sh)
-
 1. Revisit what we learned during the bootcamp and check your understanding.
 2. TypeScript.
 3. CS fundamentals:
@@ -13,6 +11,8 @@
 
 ## Useful Resources
 
+- [Roadmap.sh](https://roadmap.sh)
+- [Teach Yourself Computer Science](https://teachyourselfcs.com)
 - [Crash Course CS](https://youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&si=99m788x0DyyuzA68)
 - [CS 253 - Web Security](https://youtube.com/playlist?list=PL1y1iaEtjSYiiSGVlL1cHsXN_kvJOOhu-&si=4HqvojpCnicjaQv1)
 - [CS 61A - The Structure and Interpretation of Computer Programs](https://youtube.com/playlist?list=PLhMnuBfGeCDNgVzLPxF9o5UNKG1b-LFY9&si=wYuJcc_FDsVFpUAd)
