@@ -11,6 +11,7 @@ function Counter() {
       setCount((currentCount) => currentCount + 1);
     }, 1000);
 
+    // cleanup function, runs when component is unmounted
     return () => {
       console.log("Counter has unmounted");
       clearInterval(intervalId);

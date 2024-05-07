@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "Bob Belcher",
+    "gender": "male",
+    "voiceActor": "H. Jon Benjamin",
+    "quote": "All right, listen. You're my children, and I love you. But you're all terrible at what you do here, and I feel like I should tell you I'd fire all of you if I could.",
+    "imageSrc": "/belchers/bob-belcher.webp"
+  },
+  {
+    "id": "2",
+    "name": "Linda Belcher",
+    "gender": "female",
+    "voiceActor": "John Roberts",
+    "quote": "Mommy doesn't get drunk. She just has fun.",
+    "imageSrc": "/belchers/linda-belcher.webp"
+  },
+  {
+    "id": "3",
+    "name": "Tina Belcher",
+    "gender": "female",
+    "voiceActor": "Dan Mintz",
+    "quote": "Is it bad to be attracted to a cartoon fox that you don't even know that well?",
+    "imageSrc": "/belchers/tina-belcher.webp"
+  },
+  {
+    "id": "4",
+    "name": "Gene Belcher",
+    "gender": "male",
+    "voiceActor": "Eugene Mirman",
+    "quote": "You should know when you hold hands with me, you are holding hands with everything I’ve ever eaten.",
+    "imageSrc": "/belchers/gene-belcher.webp"
+  },
+  {
+    "id": "5",
+    "name": "Louise Belcher",
+    "gender": "female",
+    "voiceActor": "Kristen Schaal",
+    "quote": "The best part about working here is my dad's total disregard for child labor laws. It feels great to be an accessory to a crime every single day without even trying.",
+    "imageSrc": "/belchers/louise-belcher.webp"
+  }
+]

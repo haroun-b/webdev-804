@@ -3,17 +3,17 @@ import "./App.css";
 import Counter from "./components/Counter";
 
 /** Component life cycle
- * 1. Mount
- * 2. Update
- * 3. Unmount
+ * 1. Mounting
+ * 2. Updating
+ * 3. Unmounting
  */
 
 function App() {
   const [counterOn, setCounterOn] = useState(false);
 
-  // useEffect(() => {
-  //   console.log("counterOn was switched");
-  // }, [counterOn]);
+  useEffect(() => {
+    console.log("counterOn was switched");
+  }, [counterOn]);
 
   return (
     <>
