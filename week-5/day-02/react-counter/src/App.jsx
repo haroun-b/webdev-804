@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Counter from "./components/Counter";
 
 /** Component life cycle
  * 1. Mount
@@ -8,29 +9,17 @@ import "./App.css";
  */
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [dependent, setDependant] = useState(false);
+  const [counterOn, setCounterOn] = useState(false);
 
-  useEffect(() => {
-    setInterval(() => {
-      setCount((currentCount) => currentCount + 1);
-    }, 1000);
-  }, [dependent]);
-
-  // setTimeout(() => {
-  //   // console.log(count);
-  //   setCount((currentCount) => {
-  //     console.log(currentCount);
-  //     return currentCount;
-  //   });
-  // }, 3000);
+  // useEffect(() => {
+  //   console.log("counterOn was switched");
+  // }, [counterOn]);
 
   return (
     <>
-      <h1>{count}</h1>
-      <button onClick={() => setCount((count) => count + 1)}>Increment</button>
-      <button onClick={() => setDependant((dependant) => !dependant)}>
-        Flip
+      {counterOn && <Counter />}
+      <button onClick={() => setCounterOn((_switch) => !_switch)}>
+        {counterOn ? "Hide Counter" : "Show Counter"}
       </button>
     </>
   );
