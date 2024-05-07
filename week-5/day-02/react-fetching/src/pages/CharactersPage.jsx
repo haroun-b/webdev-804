@@ -19,8 +19,14 @@ function CharacterPage() {
 
   const charGender = searchParams.get("gender");
 
+  /*
+  `?.` is called optional chaining. used in case `char.gender` is not a string
+   more on `?.`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+  */
   const filteredCharacters = charGender
-    ? characters.filter((char) => char.gender?.toLowerCase() === charGender)
+    ? characters.filter((char) => {
+        return char.gender?.toLowerCase() === charGender;
+      })
     : characters;
 
   return (

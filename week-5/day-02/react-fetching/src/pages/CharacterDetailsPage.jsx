@@ -12,6 +12,7 @@ function CharacterDetailsPage() {
         `https://bobsburgers-api.herokuapp.com/characters/${charId}`
       );
       const data = await response.json();
+
       setCharacterDetails(data);
     }
     fetchDetails();

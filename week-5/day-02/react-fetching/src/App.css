@@ -51,6 +51,10 @@ a.active {
   width: 100%;
 }
 
+hgroup {
+  margin-left: 2rem;
+}
+
 @media (prefers-color-scheme: light) {
   .card {
     color: #213547;
