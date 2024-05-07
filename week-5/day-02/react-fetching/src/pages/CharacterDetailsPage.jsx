@@ -1,29 +1,38 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-import characters from "../assets/characters.json";
 
 function CharacterDetailsPage() {
   // `useParams` allows to get the dynamic part of the path
   const { charId } = useParams();
+  const [characterDetails, setCharacterDetails] = useState(null);
 
-  const character = characters.find((char) => char.id === charId);
+  useEffect(() => {
+    async function fetchDetails() {
+      const response = await fetch(
+        `https://bobsburgers-api.herokuapp.com/characters/${charId}`
+      );
+      const data = await response.json();
+      setCharacterDetails(data);
+    }
+    fetchDetails();
+  }, [charId]);
 
-  if (!character) {
-    return <div>404 Character Not Found</div>;
+  if (!characterDetails) {
+    return <div>Loading...</div>;
   }
 
-  const { imageSrc, name, voiceActor, quote } = character;
+  const { image, name, voicedBy, firstEpisode } = characterDetails;
 
   return (
     <div className="card">
       <img
-        src={imageSrc}
+        src={image}
         alt=""
       />
       <hgroup>
         <h2>{name}</h2>
-        <h3>Voiced by: {voiceActor}</h3>
-        <p>{quote}</p>
+        <h3>Voiced by: {voicedBy}</h3>
+        <p>First appeared in: {firstEpisode}</p>
       </hgroup>
     </div>
   );

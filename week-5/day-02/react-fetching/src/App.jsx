@@ -24,19 +24,6 @@ function App() {
           Component={CharacterPage}
         />
 
-        {/* => creating a route for every character would be insane.
-        <Route
-          path="/characters/1"
-          element={<CharacterDetailsPage id="1" />}
-        />
-
-        <Route
-          path="/characters/2"
-          element={<CharacterDetailsPage id="2" />}
-        />
-        */}
-
-        {/* so we use a dynamic path `/:nameItWhatever` */}
         <Route
           path="/characters/:charId"
           Component={CharacterDetailsPage}

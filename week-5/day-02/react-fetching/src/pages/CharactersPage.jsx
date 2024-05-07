@@ -11,7 +11,6 @@ function CharacterPage() {
       const response = await fetch(
         "https://bobsburgers-api.herokuapp.com/characters"
       );
-      console.log(response);
       const data = await response.json();
       setCharacters(data);
     }
@@ -26,12 +25,7 @@ function CharacterPage() {
 
   return (
     <>
-      <h1>Belcher Family</h1>
-      {/* => while using a Link works in this case
-      => setting multiple searchParams would be difficult
-
-      <Link to="/characters?gender=male">Male</Link>
-      */}
+      <h1>Bob&apos;s Burgers Characters</h1>
 
       <div className="filters">
         <button onClick={() => setSearchParams()}>All</button>
