@@ -4,6 +4,7 @@ import ProjectsList from "./pages/ProjectsList";
 
 import "./App.css";
 import ProjectDetails from "./pages/ProjectDetails";
+import NewProject from "./pages/NewProject";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/new-project">New Project</NavLink>
       </nav>
 
       <Routes>
@@ -22,6 +24,11 @@ function App() {
         <Route
           path="/projects"
           Component={ProjectsList}
+        />
+
+        <Route
+          path="/new-project"
+          Component={NewProject}
         />
 
         <Route

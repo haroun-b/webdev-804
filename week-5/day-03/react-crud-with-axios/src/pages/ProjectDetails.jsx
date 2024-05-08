@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { API_BASE_URL } from "../consts";
+import Form from "../components/Form";
 
 function ProjectDetails() {
   const { projectId } = useParams();
@@ -9,19 +10,36 @@ function ProjectDetails() {
   const [project, setProject] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
-  useEffect(() => {
-    async function getProject() {
-      try {
-        const response = await axios.get(
-          `${API_BASE_URL}/projects/${projectId}?_embed=tasks`
-        );
-        setProject(response.data);
-      } catch (err) {
-        setErrorMsg(err.message);
-      }
+  async function getProject() {
+    try {
+      const response = await axios.get(
+        `${API_BASE_URL}/projects/${projectId}?_embed=tasks`
+      );
+      setProject(response.data);
+    } catch (err) {
+      setErrorMsg(err.message);
     }
+  }
+
+  useEffect(() => {
     getProject();
   }, [projectId]);
+
+  async function handleSubmit(formData) {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/tasks`, {
+        // title: formData.title,
+        // description: formData.description,
+        ...formData,
+        projectId: project.id
+      });
+
+      getProject();
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   if (errorMsg) {
     return <div>{errorMsg}</div>;
@@ -41,6 +59,8 @@ function ProjectDetails() {
           return <li key={task.id}>{task.title}</li>;
         })}
       </ul>
+
+      <Form handleSubmit={handleSubmit} />
 
       <Link to="/projects">Back</Link>
     </div>
