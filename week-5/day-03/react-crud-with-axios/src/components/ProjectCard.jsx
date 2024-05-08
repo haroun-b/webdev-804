@@ -4,7 +4,7 @@ function ProjectCard({ project }) {
   return (
     <Link
       className="card light"
-      to={project.id}
+      to={`/projects/${project.id}`}
     >
       <h2>{project.title}</h2>
       <p>{project.description}</p>

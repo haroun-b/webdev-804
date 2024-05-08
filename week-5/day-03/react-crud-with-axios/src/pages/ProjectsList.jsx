@@ -20,7 +20,7 @@ function ProjectsList() {
   }, []);
 
   return (
-    <div>
+    <div className="projects-list">
       <h1>All Projects</h1>
       {errorMsg && <div>{errorMsg}</div>}
       {projects.map((project) => {

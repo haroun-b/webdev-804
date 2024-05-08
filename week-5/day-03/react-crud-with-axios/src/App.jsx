@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import ProjectsList from "./pages/ProjectsList";
 
 import "./App.css";
+import ProjectDetails from "./pages/ProjectDetails";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
         <Route
           path="/projects"
           Component={ProjectsList}
+        />
+
+        <Route
+          path="/projects/:projectId"
+          Component={ProjectDetails}
         />
 
         <Route
