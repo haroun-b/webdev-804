@@ -1,0 +1,61 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+nav {
+  background-color: #ffbf00;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  color: #000;
+  padding: 1rem 2rem;
+}
+
+a.active {
+  background-color: antiquewhite;
+}
+
+.card {
+  display: block;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.card {
+  padding: 0 1rem 1rem;
+}
+
+.card.light {
+  border-top: 2px solid #ffbf00;
+}
+
+.card.light h2 {
+  font-size: 2rem;
+}
+
+form {
+  text-align: left;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 2px solid #ffbf00;
+}
+
+form input[type="submit"] {
+  margin-top: 1.5rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .card > a {
+    color: #213547;
+  }
+}
