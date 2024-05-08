@@ -13,7 +13,7 @@
   1. [React Interval Counter and useEffect](./day-02/react-counter/src/App.jsx)
   2. [React Fetching and useEffect](./day-02/react-fetching/src/pages/CharactersPage.jsx)
 - Day 3:
-  1. []()
+  1. [React CRUD With Axios](./day-03/react-crud-with-axios/src/App.jsx)
 - Day 4:
   1. []()
 - Day 5:

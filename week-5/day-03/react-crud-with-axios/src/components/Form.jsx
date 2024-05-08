@@ -7,6 +7,8 @@ function Form({ handleSubmit, data, type }) {
   };
   const [formData, setFormData] = useState(data ?? emptyForm);
 
+  // `??` is the nullish coalescing operator: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing
+
   function handleChange(e) {
     setFormData((data) => {
       return { ...data, [e.target.name]: e.target.value };

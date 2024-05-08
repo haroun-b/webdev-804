@@ -62,8 +62,10 @@ function ProjectDetails() {
     <div className="project-details">
       <div>
         <h1>{project.title}</h1>
-        <button onClick={handleDelete}>Delete</button>
-        <Link to={`/edit-project/${projectId}`}>Update</Link>
+        <div className="actions">
+          <button onClick={handleDelete}>Delete</button>
+          <Link to={`/edit-project/${projectId}`}>Edit</Link>
+        </div>
       </div>
       <p>{project.description}</p>
       <h2>Tasks</h2>
