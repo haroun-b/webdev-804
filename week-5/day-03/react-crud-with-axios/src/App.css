@@ -1,4 +1,9 @@
+* {
+  /* outline: 1px solid blue; */
+}
+
 #root {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -52,6 +57,32 @@ form {
 
 form input[type="submit"] {
   margin-top: 1.5rem;
+}
+
+.project-details {
+  min-height: 25rem;
+  text-align: left;
+}
+
+.project-details > h1 {
+  margin-bottom: 1rem;
+}
+
+.project-details > h2 {
+  margin: 3rem 0 0;
+}
+
+.project-details > ul {
+  margin: 0.5rem 0 0;
+}
+
+.project-details > a {
+  display: block;
+  color: #213547;
+  background-color: #ffbf00;
+  width: max-content;
+  padding: 0.6rem 2rem;
+  margin: 3rem auto 0;
 }
 
 @media (prefers-color-scheme: light) {

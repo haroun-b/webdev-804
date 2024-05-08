@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { API_BASE_URL } from "../consts";
 
 function ProjectDetails() {
@@ -32,14 +32,17 @@ function ProjectDetails() {
   }
 
   return (
-    <div>
+    <div className="project-details">
       <h1>{project.title}</h1>
       <p>{project.description}</p>
+      <h2>Tasks</h2>
       <ul>
         {project.tasks.map((task) => {
           return <li key={task.id}>{task.title}</li>;
         })}
       </ul>
+
+      <Link to="/projects">Back</Link>
     </div>
   );
 }
