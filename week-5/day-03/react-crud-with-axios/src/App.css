@@ -53,6 +53,7 @@ form {
   margin-bottom: 2rem;
   padding: 1.5rem;
   border: 2px solid #ffbf00;
+  margin-top: 2.5rem;
 }
 
 form input[type="submit"] {

@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { API_BASE_URL } from "../consts";
 import Form from "../components/Form";
 
 function ProjectDetails() {
   const { projectId } = useParams();
+  const navigate = useNavigate();
 
   const [project, setProject] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -27,17 +28,25 @@ function ProjectDetails() {
 
   async function handleSubmit(formData) {
     try {
-      const response = await axios.post(`${API_BASE_URL}/tasks`, {
+      await axios.post(`${API_BASE_URL}/tasks`, {
         // title: formData.title,
         // description: formData.description,
         ...formData,
-        projectId: project.id
+        projectId: projectId
       });
 
       getProject();
-      console.log(response);
     } catch (error) {
-      console.log(error);
+      setErrorMsg(error.message);
+    }
+  }
+
+  async function handleDelete() {
+    try {
+      await axios.delete(`${API_BASE_URL}/projects/${projectId}`);
+      navigate("/projects");
+    } catch (error) {
+      setErrorMsg(error.message);
     }
   }
 
@@ -51,7 +60,11 @@ function ProjectDetails() {
 
   return (
     <div className="project-details">
-      <h1>{project.title}</h1>
+      <div>
+        <h1>{project.title}</h1>
+        <button onClick={handleDelete}>Delete</button>
+        <Link to={`/edit-project/${projectId}`}>Update</Link>
+      </div>
       <p>{project.description}</p>
       <h2>Tasks</h2>
       <ul>
@@ -60,7 +73,10 @@ function ProjectDetails() {
         })}
       </ul>
 
-      <Form handleSubmit={handleSubmit} />
+      <Form
+        handleSubmit={handleSubmit}
+        type="Task"
+      />
 
       <Link to="/projects">Back</Link>
     </div>

@@ -21,7 +21,10 @@ function NewProject() {
     <div>
       <h1>Create a new Project</h1>
       {errorMsg && <div>{errorMsg}</div>}
-      <Form handleSubmit={handleSubmit} />
+      <Form
+        handleSubmit={handleSubmit}
+        type="Project"
+      />
     </div>
   );
 }

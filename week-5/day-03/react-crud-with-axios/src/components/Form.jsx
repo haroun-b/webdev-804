@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-function Form({ handleSubmit }) {
+function Form({ handleSubmit, data, type }) {
   const emptyForm = {
     title: "",
     description: ""
   };
-  const [formData, setFormData] = useState(emptyForm);
+  const [formData, setFormData] = useState(data ?? emptyForm);
 
   function handleChange(e) {
     setFormData((data) => {
@@ -38,8 +38,8 @@ function Form({ handleSubmit }) {
         <textarea
           name="description"
           id="description"
-          cols="30"
-          rows="10"
+          cols="20"
+          rows="2"
           value={formData.description}
           onChange={handleChange}
         ></textarea>
@@ -47,7 +47,7 @@ function Form({ handleSubmit }) {
 
       <input
         type="submit"
-        value="Submit"
+        value={`${data ? "Update" : "Add"} ${type}`}
       />
     </form>
   );

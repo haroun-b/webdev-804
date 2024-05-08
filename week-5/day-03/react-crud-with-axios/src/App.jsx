@@ -1,6 +1,7 @@
 import { NavLink, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import ProjectsList from "./pages/ProjectsList";
+import EditProject from "./pages/EditProject";
 
 import "./App.css";
 import ProjectDetails from "./pages/ProjectDetails";
@@ -29,6 +30,11 @@ function App() {
         <Route
           path="/new-project"
           Component={NewProject}
+        />
+
+        <Route
+          path="/edit-project/:projectId"
+          Component={EditProject}
         />
 
         <Route
