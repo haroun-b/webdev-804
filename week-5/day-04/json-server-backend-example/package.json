@@ -1,0 +1,10 @@
+{
+  "name": "json-server-backend-example",
+  "scripts": {
+    "start": "npx json-server db.json"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.23"
+  }
+}
