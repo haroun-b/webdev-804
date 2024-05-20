@@ -5,7 +5,8 @@ const morgan = require("morgan");
 const app = express();
 
 // #region | Extra
-app.use(express.json());
+// without this middleware, req.body will be undefined
+app.use(express.json()); // parses json request body, and adds it to req.body
 
 app.post("/show-body", (req, res) => {
   console.log("Request Body: ", req.body);
@@ -14,13 +15,22 @@ app.post("/show-body", (req, res) => {
 });
 // #endregion | Extra
 
-// app.use((req, res, next) => {
-//   console.log(`${req.method} | ${req.url}`);
-//   next();
-// });
+/* this is a middleware that logs the request method and url
+
+app.use((req, res, next) => {
+  console.log(`${req.method} | ${req.url}`);
+  next();
+});
+*/
+
+// morgan is also a logger middleware, it allows us to log more infos easily
 app.use(morgan(":date[iso] > :method :url :status :response-time ms"));
 
-app.use("/static", express.static("public"));
+/*
+  this middleware serves static files from the public folder 
+  so we can making a request to http://localhost:5000/static/cat.jpg will return the cat.jpg file
+*/
+app.use("/static", express.static("public")); // serves static files
 // app.use("/could-be-any-path-we-want", express.static("public"));
 
 app.get("/", (req, res, next) => {
