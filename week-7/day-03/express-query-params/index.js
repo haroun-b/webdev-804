@@ -19,12 +19,16 @@ app.get("/", (req, res) => {
 using the same key multiple times will store the values in an array
 /characters?firstName=Linda&firstName=Louise
 req.params.firstName => ["Linda", "Louise"]
+
+/characters?firstName=Linda
+in this case is a string: req.params.firstName = "Linda"
 */
 app.get("/characters", (req, res) => {
   console.log(req.query);
 
   const { gender, isRecurring, firstName } = req.query;
 
+  // we want to make sure that firstNames is always: array or undefined. so we can use `.includes()`
   const firstNames = typeof firstName === "string" ? [firstName] : firstName;
 
   const filteredCharacters = characters.filter((char) => {
