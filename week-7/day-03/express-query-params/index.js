@@ -60,6 +60,18 @@ app.get("/characters/:characterId", (req, res) => {
   res.json(character);
 });
 
+/*
+the `/characters/:characterId` will prevent this route from ever being reached
+this is because `last-one` will be treated as a `characterId`
+to fix this, this route must come before `/characters/:characterId`
+
+we handle routes the same way we write `if` conditions, most specific to least specific
+
+app.get("/characters/last-one", (req, res) => {
+  res.json(characters[characters.length - 1]);
+});
+*/
+
 app.listen(port, () => {
   console.log(`Server listening on: http://localhost:${port}`);
 });
