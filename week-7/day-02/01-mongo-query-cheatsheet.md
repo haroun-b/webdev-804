@@ -114,3 +114,5 @@ Assuming we have a collection of restaurants with the following structure:
 ## Limit and Skip
 
 Limit and skip are used for pagination. Limit is used to specify the number of documents to return and skip is used to specify the number of documents to skip.
+
+## [MongoDB Query Docs](https://www.mongodb.com/docs/manual/reference/operator/query/)

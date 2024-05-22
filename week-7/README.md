@@ -11,7 +11,8 @@
   1. [Mongo Query Cheatsheet](./day-02/01-mongo-query-cheatsheet.md)
   2. [Data Models](./day-02/02-data-models.md)
 - Day 3:
-  1. []()
+  1. [Express Query and Params](./day-03/01-express-query-and-params.md)
+  2. [Mongoose CRUD Basics](./day-03/02-mongoose-crud-basics.md)
 - Day 4:
   1. []()
 - Day 5:
