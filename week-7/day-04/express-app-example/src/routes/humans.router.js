@@ -27,6 +27,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// middleware to validate `humanId` on both routes: `/:humanId` and `/:humanId/pets`
 router.all(["/:humanId", "/:humanId/pets"], (req, res, next) => {
   const { humanId } = req.params;
 
@@ -35,7 +36,7 @@ router.all(["/:humanId", "/:humanId/pets"], (req, res, next) => {
     return;
   }
 
-  next();
+  next(); // only proceed if `humanId` is a valid ObjectId
 });
 
 router.get("/:humanId", async (req, res, next) => {
@@ -90,7 +91,7 @@ router.delete("/:humanId", async (req, res, next) => {
 });
 
 router
-  .route("/:humanId/pets")
+  .route("/:humanId/pets") // used to chain multiple HTTP methods on the same route
   .get(async (req, res, next) => {
     const { humanId } = req.params;
 

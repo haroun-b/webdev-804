@@ -29,11 +29,11 @@ router.get("/:petId", async (req, res, next) => {
 
   try {
     const pet = await Pet.findById(petId).populate("owner");
+
     if (!pet) {
       handleNotFound(res);
       return;
     }
-
     res.json(pet);
   } catch (error) {
     next(error);

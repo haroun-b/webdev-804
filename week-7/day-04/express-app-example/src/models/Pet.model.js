@@ -6,6 +6,7 @@ const petSchema = new Schema({
     required: true,
     unique: true,
     set: (name) => {
+      // `set` transforms the value before saving it to the database
       return name[0].toUpperCase() + name.slice(1);
     }
   },
@@ -17,10 +18,11 @@ const petSchema = new Schema({
   favFoods: {
     type: [String],
     validate: {
+      // validation passes when `validator` returns `true`
       validator: (foods) => {
         return !foods.includes("cheese");
       },
-      message: "Cheese is gross"
+      message: "Cheese is gross" // error message if validation fails
     }
   },
   owner: {
