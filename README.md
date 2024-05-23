@@ -21,6 +21,7 @@ Dans ce repo, vous trouverez :
 - [Week 2: OOP, Array Methods, DOM](./week-2/README.md)
 - [Week 4: Node & NPM, React, React Routing](./week-4/README.md)
 - [Week 5: React Hooks, Promises, APIs, Mock Backend API, and Github Collaboration](./week-5/README.md)
+- [Week 7: ExpressJS, MongoDB, and Mongoose](./week-7/README.md)
 
 - [Next Steps (After Ironhack)](./next-steps.md)
 
