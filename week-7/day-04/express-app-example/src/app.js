@@ -11,7 +11,7 @@ const app = express();
 
 app.use(express.json());
 app.use(logger("dev"));
-app.use(cors({ origin: ["http://localhost:7153"] }));
+app.use(cors({ origin: "http://127.0.0.1:5173" }));
 
 app.get("/", (req, res) => {
   res.json({ message: "Hello World" });
