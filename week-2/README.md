@@ -17,4 +17,4 @@
   2. [Value vs Reference](./day-4/02-value-vs-reference.md)
   3. [Async, Timeout, and Interval](./day-4/03-async-timeout-and-interval.md)
 - Day 5:
-  1. []()
+  1. [Race Car Lab Example Solution](./day-5/lab-dom-race-car-solution/README.md)

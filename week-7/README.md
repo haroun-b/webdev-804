@@ -14,6 +14,7 @@
   1. [Express Query and Params](./day-03/01-express-query-and-params.md)
   2. [Mongoose CRUD Basics](./day-03/02-mongoose-crud-basics.md)
 - Day 4:
-  1. []()
+  1. [Express App Generators](./day-04/01.express-app-generators.md)
+  2. [RESTful API Design (external link)](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design)
 - Day 5:
   1. []()
