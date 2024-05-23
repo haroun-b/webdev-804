@@ -4,7 +4,7 @@ const router = Router();
 const { handleNotFound } = require("../utils");
 
 // catch all route. if no route is matched, this route's handler is called
-router.use("*", (_, res) => {
+router.use("*", (_, res) => { // also works without the "*"
   handleNotFound(res);
 });
 
