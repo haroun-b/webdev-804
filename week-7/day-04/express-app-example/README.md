@@ -10,6 +10,9 @@ An example Express Application to be used as a reference
 
 ```
 express-app-example
+├── .env
+├── .env_example
+├── .gitignore
 ├── README.md
 ├── package-lock.json
 ├── package.json
@@ -18,11 +21,12 @@ express-app-example
     ├── consts.js
     ├── db
     │   └── index.js
+    ├── error-handling
+    │   └── index.js
     ├── models
     │   ├── Human.model.js
     │   └── Pet.model.js
     ├── routes
-    │   ├── errorHandler.router.js
     │   ├── humans.router.js
     │   └── pets.router.js
     └── utils.js
