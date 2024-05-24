@@ -2,10 +2,9 @@ const mongoose = require("mongoose");
 const { Router } = require("express");
 const router = Router();
 
-const Journal = require("../models/Journal.model");
-const User = require("../models/User.model");
-const { handleNotFound } = require("../utils");
 const protectionMiddleware = require("../middlewares/protection.middleware");
+const Journal = require("../models/Journal.model");
+const { handleNotFound } = require("../utils");
 
 router.use(protectionMiddleware); // 👇 all routes bellow are now protected
 
@@ -16,7 +15,7 @@ router.post("/", async (req, res, next) => {
     const createdJournal = await Journal.create({
       title,
       content,
-      author: req.user.id
+      author: req.user.id // `user` was stored in `req` in the `protectionMiddleware`
     });
 
     res.json(createdJournal);
@@ -27,6 +26,7 @@ router.post("/", async (req, res, next) => {
 
 router.get("/", async (req, res, next) => {
   try {
+    // `user` was stored in `req` in the `protectionMiddleware`
     if (req.user.isAdmin) {
       const allJournals = await Journal.find();
       res.json(allJournals);
@@ -48,6 +48,7 @@ router.delete("/:journalId", async (req, res, next) => {
   }
 
   try {
+    // `user` was stored in `req` in the `protectionMiddleware`
     if (req.user.isAdmin) {
       await Journal.findByIdAndDelete(journalId);
     } else {

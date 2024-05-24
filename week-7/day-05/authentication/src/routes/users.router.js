@@ -19,7 +19,9 @@ router.post("/signup", async (req, res, next) => {
       password: hashedPassword
     });
 
-    delete createdUser._doc.password;
+    // `createdUser` is readonly, the actual data is stored in `createdUser._doc`
+    // directly mutating `._doc` is not particularly good practice, so use with caution
+    delete createdUser._doc.password; // 👈 remove password from response
 
     res.status(201).json(createdUser);
   } catch (err) {
@@ -33,6 +35,11 @@ router.post("/login", async (req, res, next) => {
   try {
     const user = await User.findOne({ email });
 
+    /*
+    unlike encryption, hashing is a one-way process, meaning we can't decrypt. so to check if the password is correct, we need to hash the password we received from the client and compare it to the hashed password stored in the database
+  
+    that's what `bcrypt.compare` does
+    */
     const isCorrectCredentials =
       user != null && (await bcrypt.compare(password, user.password));
 
@@ -56,6 +63,7 @@ router.post("/login", async (req, res, next) => {
 router.use(protectionMiddleware); // 👇 all routes bellow are now protected
 
 router.get("/me", (req, res, next) => {
+  // `user` was stored in `req` in the `protectionMiddleware`
   res.json(req.user);
 });
 
