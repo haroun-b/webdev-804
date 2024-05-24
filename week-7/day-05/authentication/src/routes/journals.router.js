@@ -1,16 +1,13 @@
+const mongoose = require("mongoose");
 const { Router } = require("express");
 const router = Router();
-const jwt = require("jsonwebtoken");
 
 const Journal = require("../models/Journal.model");
 const User = require("../models/User.model");
-const { TOKEN_SECRET } = require("../consts");
-const { default: mongoose } = require("mongoose");
 const { handleNotFound } = require("../utils");
 const protectionMiddleware = require("../middlewares/protection.middleware");
 
-// protect middleware
-router.use(protectionMiddleware);
+router.use(protectionMiddleware); // 👇 all routes bellow are now protected
 
 router.post("/", async (req, res, next) => {
   try {

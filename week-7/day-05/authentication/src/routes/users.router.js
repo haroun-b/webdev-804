@@ -4,8 +4,8 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const { TOKEN_SECRET } = require("../consts");
-const User = require("../models/User.model");
 const protectionMiddleware = require("../middlewares/protection.middleware");
+const User = require("../models/User.model");
 
 router.post("/signup", async (req, res, next) => {
   const { email, password } = req.body;
@@ -14,7 +14,10 @@ router.post("/signup", async (req, res, next) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   try {
-    const createdUser = await User.create({ email, password: hashedPassword });
+    const createdUser = await User.create({
+      email,
+      password: hashedPassword
+    });
 
     delete createdUser._doc.password;
 
@@ -30,7 +33,10 @@ router.post("/login", async (req, res, next) => {
   try {
     const user = await User.findOne({ email });
 
-    if (!user || !(await bcrypt.compare(password, user.password))) {
+    const isCorrectCredentials =
+      user != null && (await bcrypt.compare(password, user.password));
+
+    if (!isCorrectCredentials) {
       res.status(401).json({ message: "Invalid credentials" });
       return;
     }
@@ -47,7 +53,8 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.use(protectionMiddleware);
+router.use(protectionMiddleware); // 👇 all routes bellow are now protected
+
 router.get("/me", (req, res, next) => {
   res.json(req.user);
 });
