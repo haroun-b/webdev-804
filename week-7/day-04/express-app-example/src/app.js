@@ -2,10 +2,10 @@ const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 
-const { PORT, CORS_ORIGIN } = require("./consts");
 const humansRouter = require("./routes/humans.router");
 const petsRouter = require("./routes/pets.router");
-const errorHandlerRouter = require("./routes/errorHandler.router");
+const { PORT, CORS_ORIGIN } = require("./consts");
+const { catchAll, errorHandler } = require("./error-handling");
 
 const app = express();
 
@@ -19,8 +19,9 @@ app.get("/", (req, res) => {
 app.use("/humans", humansRouter); // use humansRouter for all routes starting with "/humans"
 app.use("/pets", petsRouter); // use petsRouter for all routes starting with "/pets"
 
-// the error handler middleware should always be the last middleware
-app.use(errorHandlerRouter);
+// error handling middlewares should always be last
+app.use(catchAll);
+app.use(errorHandler);
 
 /*
 const connectDB = require("./db");
