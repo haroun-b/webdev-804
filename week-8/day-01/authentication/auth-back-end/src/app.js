@@ -1,8 +1,9 @@
 const express = require("express");
 const path = require("path");
 const logger = require("morgan");
+const cors = require("cors");
 
-const { PORT } = require("./consts");
+const { PORT, CORS_ORIGIN } = require("./consts");
 const indexRouter = require("./routes/index.router");
 const usersRouter = require("./routes/users.router");
 const journalsRouter = require("./routes/journals.router");
@@ -14,6 +15,11 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "../public")));
+app.use(
+  cors({
+    origin: CORS_ORIGIN
+  })
+);
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
