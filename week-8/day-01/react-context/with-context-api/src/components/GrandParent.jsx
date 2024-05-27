@@ -5,10 +5,13 @@ import { MessageContext } from "../contexts/MessageContext";
 function GrandParent() {
   const msgContextValue = useContext(MessageContext);
 
-  console.log(msgContextValue);
+  /*
+  msgContextValue is not available outside the `MessageContextProvider`
+  */
+  console.log(msgContextValue); // undefined
 
   return (
-    <div>
+    <div className="grand-parent">
       <p>GrandParent</p>
       {msgContextValue?.message}
       <Parent />

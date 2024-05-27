@@ -3,7 +3,7 @@ import { MessageContextProvider } from "../contexts/MessageContext";
 
 function Parent() {
   return (
-    <div>
+    <div className="parent">
       <p>Parent</p>
       <MessageContextProvider>
         <Child />

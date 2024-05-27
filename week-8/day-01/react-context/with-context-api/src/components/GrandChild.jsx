@@ -6,10 +6,10 @@ function GrandChild() {
   const { message, toggleMsg } = useContext(MessageContext);
 
   return (
-    <div>
+    <div className="grand-child">
       <p>GrandChild</p>
-      {message}
-      <button onClick={toggleMsg}>Toggle MSG</button>
+      <p>Message: {message}</p>
+      <button onClick={toggleMsg}>Toggle Msg</button>
       <Counter />
     </div>
   );

@@ -69,3 +69,15 @@
 #root > div > div > div > div > div > div {
   background-color: green;
 }
+
+#root > div > div > div > div > div > div > div {
+  background-color: red;
+}
+
+#root > div > div > div > div > div > div > div > div {
+  background-color: darkkhaki;
+}
+
+.grand-parent {
+  display: inline-block;
+}
