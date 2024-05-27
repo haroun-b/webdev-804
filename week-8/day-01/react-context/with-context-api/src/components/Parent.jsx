@@ -1,9 +1,13 @@
 import Child from "./Child";
+import { MessageContextProvider } from "../contexts/MessageContext";
 
 function Parent() {
   return (
     <div>
-      <Child />
+      <p>Parent</p>
+      <MessageContextProvider>
+        <Child />
+      </MessageContextProvider>
     </div>
   );
 }

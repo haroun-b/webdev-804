@@ -7,7 +7,6 @@ function App() {
     <div>
       <CountContextProvider>
         <GrandParent />
-
         <GrandParent />
       </CountContextProvider>
     </div>

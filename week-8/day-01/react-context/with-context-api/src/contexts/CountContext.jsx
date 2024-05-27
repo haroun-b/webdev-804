@@ -8,7 +8,10 @@ function CountContextProvider({ children }) {
 
   return (
     <CountContext.Provider value={{ count, setCount }}>
-      {children}
+      <div>
+        <h2>Count Context Provider</h2>
+        {children}
+      </div>
     </CountContext.Provider>
   );
 }
