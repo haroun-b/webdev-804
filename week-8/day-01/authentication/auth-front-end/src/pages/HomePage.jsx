@@ -1,5 +1,5 @@
 function HomePage() {
-  return <div>HomePage</div>;
+  return <h1>JWT Authentication Example</h1>;
 }
 
 export default HomePage;

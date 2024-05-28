@@ -5,42 +5,6 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 #root div {
   padding: 0.8rem;
   outline: 2px solid black;
@@ -54,30 +18,31 @@
   background-color: aqua;
 }
 
-#root > div > div > div {
+.grand-parent {
   background-color: cadetblue;
-}
-
-#root > div > div > div > div {
-  background-color: purple;
-}
-
-#root > div > div > div > div > div {
-  background-color: orange;
-}
-
-#root > div > div > div > div > div > div {
-  background-color: green;
-}
-
-#root > div > div > div > div > div > div > div {
-  background-color: red;
-}
-
-#root > div > div > div > div > div > div > div > div {
-  background-color: darkkhaki;
+  display: inline-block;
 }
 
 .grand-parent {
-  display: inline-block;
+  margin: 1rem;
+}
+
+.parent {
+  background-color: purple;
+}
+
+.parent > div {
+  background-color: orange;
+}
+
+.child {
+  background-color: green;
+}
+
+.grand-child {
+  background-color: red;
+}
+
+.grand-child > div {
+  background-color: darkkhaki;
 }

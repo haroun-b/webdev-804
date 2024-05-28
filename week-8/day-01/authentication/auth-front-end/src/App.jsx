@@ -54,7 +54,7 @@ function App() {
           />
 
           <Route
-            path="/journals/create"
+            path="/create-journal"
             Component={CreateJournalPage}
           />
         </Route>

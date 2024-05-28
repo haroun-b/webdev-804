@@ -8,9 +8,14 @@ function AuthContextProvider({ children }) {
   const [authToken, setAuthToken] = useState(localStorage.getItem("authToken"));
   const [isLoading, setIsLoading] = useState(false);
 
-  function updateToken(authToken) {
-    localStorage.setItem("authToken", authToken);
-    setAuthToken(authToken);
+  function updateToken(token) {
+    if (token) {
+      localStorage.setItem("authToken", token);
+    } else {
+      localStorage.removeItem("authToken");
+    }
+
+    setAuthToken(token);
   }
 
   useEffect(() => {
@@ -31,6 +36,7 @@ function AuthContextProvider({ children }) {
         setIsLoading(false);
       } catch (error) {
         console.error(error);
+        updateToken(null);
       }
     }
 

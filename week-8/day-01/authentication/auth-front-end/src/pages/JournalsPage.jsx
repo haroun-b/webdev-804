@@ -25,7 +25,10 @@ function JournalsPage() {
 
       {journals.map((journal) => {
         return (
-          <div key={journal._id}>
+          <div
+            className="card light"
+            key={journal._id}
+          >
             <h2>{journal.title}</h2>
             <p>{journal.content}</p>
           </div>
