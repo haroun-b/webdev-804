@@ -33,10 +33,11 @@ function AuthContextProvider({ children }) {
         const response = await apiHandler.getUser();
 
         setUser(response.data);
-        setIsLoading(false);
       } catch (error) {
         console.error(error);
         updateToken(null);
+      } finally {
+        setIsLoading(false);
       }
     }
 
