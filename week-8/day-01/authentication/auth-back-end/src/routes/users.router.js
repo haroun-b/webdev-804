@@ -21,9 +21,15 @@ router.post("/signup", async (req, res, next) => {
 
     // `createdUser` is readonly, the actual data is stored in `createdUser._doc`
     // directly mutating `._doc` is not particularly good practice, so use with caution
-    delete createdUser._doc.password; // 👈 remove password from response
+    // delete createdUser._doc.password; // 👈 remove password from response
 
-    res.status(201).json(createdUser);
+    // instead of mutating `_doc`, it's better to copy it and mutate the copy
+    const user = createdUser.toObject();
+    delete user.password;
+
+    console.log(user, createdUser);
+
+    res.status(201).json(user);
   } catch (err) {
     next(err);
   }
